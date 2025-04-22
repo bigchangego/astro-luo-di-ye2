@@ -1,0 +1,23 @@
+system: 1.0.0
+info:
+  name: 我的系统
+  vars: {}
+envs:
+  prod:
+    branch: main
+routes:
+  main_env: prod
+  main_app: app
+apps:
+  app:
+    type: web_frontend
+    envs:
+      prod:
+        build:
+          root_path: ./
+          script: npm run build
+        provision:
+          root_path: ./dist
+          type: nodejs18x
+services: {}
+auths: {}
